@@ -76,7 +76,7 @@ def weight(highest_points, p1, p2):
     if len(counter) > 0 and counter.get(p2['id'], sys.maxsize) < max(counter.values()):
         w += quality(highest_points, highest_points) + 1
 
-    # Determine a score for the quality of this pairing based on the points of the higher scoring participant of the two (importance) and how close the two participant's records are.
+    # Determine a score for the quality of this pairing based on the points of the higher scoring participant of the two (importance) and how close the two participants records are.
     best = max(p1['points'], p2['points'])
     worst = min(p1['points'], p2['points'])
     spread = best - worst
@@ -89,7 +89,7 @@ def weight(highest_points, p1, p2):
 # importance and closeness are values in the range 0..highest_points
 def quality(importance, closeness):
     # We add one to these values to avoid sometimes multiplying by zero and losing information.
-    return (importance + 1 ** 2) * (closeness + 1 ** 2)
+    return (importance + 1) * (closeness + 1)
 
 if __name__ == '__main__':
     example()
